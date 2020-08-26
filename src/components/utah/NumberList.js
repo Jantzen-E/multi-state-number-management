@@ -86,11 +86,10 @@ const NumberList = () => {
                                         <td>{personObjects[id].name}</td>
                                         <td>{personObjects[id].phoneNumber}</td>
                                         <td>{personObjects[id].address}</td>
-                                        <td><button>Edit</button> <button>Delete</button></td>
                                     </tr>
                                 })
                             }
-                            {/* <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button></tr> */}
+                            <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button></tr>
                         </tbody>
                     </table>
                 </div>
