@@ -90,7 +90,7 @@ const NumberList = () => {
                                     </tr>
                                 })
                             }
-                            <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button></tr>
+                            {/* <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button></tr> */}
                         </tbody>
                     </table>
                 </div>
