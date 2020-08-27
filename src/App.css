@@ -1,9 +1,44 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.utahLists {
+  margin-right: 20px;
+}
+
+.ohioLists {
+  margin-left: 20px;
+}
+
+.lists {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
+  flex-direction: column;
+}
+
+table {
+  border: 1px solid black;
+  padding: 34px;
+}
+
+select {
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 1.5em;
+}
+
+.number {
+  cursor: pointer;
 }

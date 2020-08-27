@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import NumberForm from './NumberForm';
 import fireDb from '../../utilUtah/firebase.js';
+import fireDb2 from '../../utilOhio/firebase.js'
 
 const NumberList = () => {
 
-    var {personObjects, setPersonObjects} = useState()
+    var [personObjects, setPersonObjects] = useState('')
     var [currentId, setCurrentId] = useState('');
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const NumberList = () => {
     }, [])
 
     const addEntry = obj => {
-        if(currentId == '') {
+        if(currentId === '') {
             fireDb.child('Utah').push(
                 obj,
                 err => {
@@ -47,6 +48,12 @@ const NumberList = () => {
         }
     }
 
+    const copyEntry = key => {
+        fireDb2.child(`Ohio/${key}`).push(
+
+        )
+    }
+
     const onDelete = key => {
         if(window.confirm('Are you sure you want to permanently delete this?')) {
             fireDb.child(`Utah/${key}`).remove(
@@ -63,20 +70,23 @@ const NumberList = () => {
     }
 
     return(
-        <div>
-            <h1>Number Management</h1>
+        <div className="utahLists">
             <div className="container">
                 <div>
-                    <NumberForm {...({ addEntry, currentId, personObjects })} />
-                </div>
-                <div>
+                <select>
+                    <option>Utah</option>
+                    <option disabled>Nevada</option>
+                    <option disabled>Montana</option>
+                    <option disabled>Idaho</option>
+                    <option disabled>Arizona</option>
+                </select>
                     <table>
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Address</th>
-                                <th>Buttons</th>
+                                <th>What do you want to do?</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,14 +94,17 @@ const NumberList = () => {
                                 Object.keys(personObjects).map(id => {
                                     return <tr key={id}>
                                         <td>{personObjects[id].name}</td>
-                                        <td>{personObjects[id].phoneNumber}</td>
+                                        <td className="number">{personObjects[id].number}</td>
                                         <td>{personObjects[id].address}</td>
+                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={ copyEntry(id) }>Copy to Ohio</button></tr>
                                     </tr>
                                 })
                             }
-                            <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button></tr>
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <NumberForm {...({ addEntry, currentId, personObjects })} />
                 </div>
             </div>
         </div>

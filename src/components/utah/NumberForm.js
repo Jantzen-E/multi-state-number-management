@@ -5,13 +5,13 @@ const NumberForm = (props) => {
         number: '',
         name: '',
         address: '',
-        active: 'false'
+        active: 'false' 
     }
 
     var [values, setValues] = useState(initialInputValues)
 
     useEffect(() => { 
-        if(props.currentId == '')
+        if(props.currentId === '')
             setValues({
                 ...initialInputValues
             })
@@ -37,21 +37,25 @@ const NumberForm = (props) => {
     return (
         <form onSubmit={ handleSubmit }>
             <div>
-                <input 
+                <h3>Create new entry</h3>
+                <input
+                    required
                     type="text" 
                     placeholder="name" 
                     name="name" 
                     value={values.name} 
                     onChange={handleInputChange}
                 />
-                <input 
+                <input
+                    required
                     type="text" 
                     placeholder="phone number" 
-                    name="phoneNumber" 
-                    value={values.phoneNumber} 
+                    name="number" 
+                    value={values.number} 
                     onChange={handleInputChange}
                 />
                 <input 
+                    required
                     type="text" 
                     placeholder="address" 
                     name="address" 
@@ -59,7 +63,7 @@ const NumberForm = (props) => {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit" value={props.currentId == '' ? "Save" : "Update"}>Save entry</button>
+            <button type="submit" value={props.currentId == '' ? "Save" : "Update"}>Save new entry</button>
         </form>
     );
 }
