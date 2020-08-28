@@ -5,7 +5,7 @@ import fireDb2 from '../../utilOhio/firebase.js';
 
 const NumberList2 = () => {
 
-    var [personObjects, setPersonObjects] = useState('')
+    var [personObjects, setPersonObjects] = useState('');
     var [currentId, setCurrentId] = useState('');
 
     useEffect(() => {
@@ -48,11 +48,23 @@ const NumberList2 = () => {
         }
     }
 
-    const copyEntry = obj => {
-        fireDb.child(
-            obj
-        )
-    }
+    // const copyEntry = obj => {
+    //     fireDb.child('Utah').push(
+    //         obj
+    //     )
+    //      var ref = fireDb2.push().key()
+        // var myRef = fireDb2.ref().push();
+        // var key = myRef.key();
+
+        // var newData = {
+        //     id: key
+        // }
+
+        // myRef.push(newData)
+    // }
+    
+
+    
 
     const onDelete = key => {
         if(window.confirm('Are you sure you want to permanently delete this?')) {
@@ -96,7 +108,8 @@ const NumberList2 = () => {
                                         <td>{personObjects[id].name}</td>
                                         <td className="number">{personObjects[id].number}</td>
                                         <td>{personObjects[id].address}</td>
-                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={ copyEntry(id) }>Copy to Utah</button></tr>
+                                        {/* <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={copyEntry(id)}>Copy to Utah</button></tr> */}
+                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button>Copy to Utah</button></tr>
                                     </tr>
                                 })
                             }
