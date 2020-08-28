@@ -11,7 +11,7 @@ const NumberForm2 = (props) => {
     var [values, setValues] = useState(initialInputValues)
 
     useEffect(() => { 
-        if(props.currentId == '')
+        if(props.currentId === '')
             setValues({
                 ...initialInputValues
             })

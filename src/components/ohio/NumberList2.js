@@ -48,24 +48,53 @@ const NumberList2 = () => {
         }
     }
 
+    // const copyEntry = id => {
+    //     fireDb.child('Utah').push({
+    //         // name: personObjects[id].name
+    //         name: 'Joe',
+    //         number: '222',
+    //         address: '444',
+    //     })
+    // }
+
+    const copyEntry = id => {
+        fireDb.child('Utah').push({
+            // name: personObjects[id].name
+        })
+    }
+
+
     // const copyEntry = obj => {
-    //     fireDb.child('Utah').push(
-    //         obj
-    //     )
-    //      var ref = fireDb2.push().key()
-        // var myRef = fireDb2.ref().push();
-        // var key = myRef.key();
+    //     console.log(personObjects)
+    // }
 
-        // var newData = {
-        //     id: key
-        // }
-
-        // myRef.push(newData)
+    // const copyEntry = obj => {
+        // fireDb.child('Utah').push(
+        //     obj,
+        //     err => {
+        //         if (err) {
+        //             console.log(err)
+        //         }
+        //         else {
+        //             setCurrentId('')
+        //         }
+        //     }
+        // )
+        // console.log(obj)
     // }
     
-
     
+    // var ref = fireDb2.push().key()
+    // var myRef = fireDb2.ref().push();
+    // var key = myRef.key();
 
+    // var newData = {
+    //     id: key
+    // }
+
+    // myRef.push(newData)
+    
+    
     const onDelete = key => {
         if(window.confirm('Are you sure you want to permanently delete this?')) {
             fireDb2.child(`Ohio/${key}`).remove(
@@ -108,8 +137,8 @@ const NumberList2 = () => {
                                         <td>{personObjects[id].name}</td>
                                         <td className="number">{personObjects[id].number}</td>
                                         <td>{personObjects[id].address}</td>
-                                        {/* <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={copyEntry(id)}>Copy to Utah</button></tr> */}
-                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button>Copy to Utah</button></tr>
+                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={copyEntry(id)}>Copy to Utah</button></tr>
+                                        {/* <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button>Copy to Utah</button></tr> */}
                                     </tr>
                                 })
                             }
