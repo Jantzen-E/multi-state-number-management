@@ -42,3 +42,13 @@ select {
 .number {
   cursor: pointer;
 }
+
+/* .active {
+  font-weight: 700;
+  cursor: pointer;
+} */
+
+/* .deactivated {
+  color: green;
+  cursor: pointer;
+} */

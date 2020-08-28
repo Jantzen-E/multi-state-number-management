@@ -53,7 +53,7 @@ const NumberList = () => {
             name: personObjects[id].name,
             number: personObjects[id].number,
             address: personObjects[id].address,
-            active: 'false'
+            active: personObjects[id].active
         })
     }
 
@@ -99,7 +99,7 @@ const NumberList = () => {
                                         <td>{personObjects[id].name}</td>
                                         <td className="number">{personObjects[id].number}</td>
                                         <td>{personObjects[id].address}</td>
-                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={() => { copyEntry(id) }}>Copy to Ohio</button></tr>
+                                        <td><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={() => { copyEntry(id) }}>Copy to Ohio</button></td>
                                     </tr>
                                 })
                             }
