@@ -48,11 +48,14 @@ const NumberList = () => {
         }
     }
 
-    // const copyEntry = key => {
-    //     fireDb2.child(`Ohio/${key}`).push(
-
-    //     )
-    // }
+    const copyEntry = id => {
+        fireDb2.child('Ohio').push({
+            name: personObjects[id].name,
+            number: personObjects[id].number,
+            address: personObjects[id].address,
+            active: 'false'
+        })
+    }
 
     const onDelete = key => {
         if(window.confirm('Are you sure you want to permanently delete this?')) {
@@ -96,7 +99,7 @@ const NumberList = () => {
                                         <td>{personObjects[id].name}</td>
                                         <td className="number">{personObjects[id].number}</td>
                                         <td>{personObjects[id].address}</td>
-                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button>Copy to Ohio</button></tr>
+                                        <tr><button onClick= {() => {setCurrentId(id)}}>Edit</button><button onClick={() => { onDelete(id) }}>Delete</button><button onClick={() => { copyEntry(id) }}>Copy to Ohio</button></tr>
                                     </tr>
                                 })
                             }
